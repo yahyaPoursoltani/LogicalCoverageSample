@@ -18,7 +18,7 @@ public class Main {
      * **/
     public static int Chkding(int qsb, int qin){
         int qs=1;
-        if((qsb>0 && qsb<=10)&&qin>=0){
+        if((qsb>1 && qsb<=10)&&qin>=0){
             qs=2;
             int b=qin;
             int d=0;
