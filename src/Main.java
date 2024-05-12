@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Chkding(10,12));
+        System.out.println(Chkding(3,321));
     }
 
     /**
@@ -22,11 +22,11 @@ public class Main {
             qs=2;
             int b=qin;
             int d=0;
-            do{
+            while (b>0 && d<qsb){
                 int x=b;
                 b= x/10;
                 d= x-b*10;
-            }while (b>0 && d<qsb);
+            };
 
             if(d<qsb){
                 qs=3;

@@ -1,27 +1,34 @@
 import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 
 class MainTest {
 
-    @Test
-    @DisplayName("Valid Base and Valid Input")
-    void validBaseAndValidInput() {
-        assertEquals(3,Main.Chkding(8,7));
-        assertEquals(3,Main.Chkding(10,1));
+    public static Stream<Arguments> provideLogicalCoverageData(){
+        return Stream.of(
+                Arguments.of(2,1,3),
+                Arguments.of(11,10,3),
+                Arguments.of(-1,2,1),
+                Arguments.of(1,2,3),
+                Arguments.of(0,10,3),
+                Arguments.of(2,1,3),
+                Arguments.of(10,11,1),
+                Arguments.of(2,2,2),
+                Arguments.of(-1,9,1)
+        );
     }
 
-    @Test
-    @DisplayName("Invalid Digit")
-    public void invalidDigit(){
-        assertEquals(2,Main.Chkding(123,2));
+    @DisplayName("Check for code conditions.")
+    @ParameterizedTest(name = "Test {index} : by using input number {0} in base {1} we mut get value {2}.")
+    @MethodSource("provideLogicalCoverageData")
+    public void testFor(int qin, int qsb, int expectedOutput){
+        assertEquals(Main.Chkding(qsb,qin),expectedOutput);
     }
 
-    @Test
-    @DisplayName("Invalid Base or Invalid Input")
-    public void validBaseAndInvalidInput(){
-        assertEquals(1,Main.Chkding(2,-1));
-        assertEquals(1,Main.Chkding(12,1));
-    }
 }
