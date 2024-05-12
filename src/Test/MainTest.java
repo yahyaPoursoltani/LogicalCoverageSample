@@ -12,12 +12,12 @@ class MainTest {
 
     public static Stream<Arguments> provideLogicalCoverageData(){
         return Stream.of(
-                Arguments.of(2,1,3),
+                Arguments.of(2,1,1),
                 Arguments.of(11,10,3),
                 Arguments.of(-1,2,1),
                 Arguments.of(1,2,3),
                 Arguments.of(0,10,3),
-                Arguments.of(2,1,3),
+                Arguments.of(2,1,1),
                 Arguments.of(10,11,1),
                 Arguments.of(2,2,2),
                 Arguments.of(-1,9,1)
@@ -28,7 +28,7 @@ class MainTest {
     @ParameterizedTest(name = "Test {index} : by using input number {0} in base {1} we mut get value {2}.")
     @MethodSource("provideLogicalCoverageData")
     public void testFor(int qin, int qsb, int expectedOutput){
-        assertEquals(Main.Chkding(qsb,qin),expectedOutput);
+        assertEquals(expectedOutput , Main.Chkding(qsb,qin));
     }
 
 }

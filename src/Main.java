@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Chkding(3,321));
+        System.out.println(Chkding(1,2));
     }
 
     /**
